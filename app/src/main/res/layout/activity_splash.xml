@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="io.neo.mvvm.ui.splash.SplashActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="io.neo.mvvm.ui.splash.SplashViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </LinearLayout>
+
+</layout>
