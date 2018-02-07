@@ -2,39 +2,9 @@ package io.neo.mvvm.data;
 
 import android.content.Context;
 
-import io.neo.mvvm.AppConstants;
-import io.neo.mvvm.data.local.db.DbHelper;
-import io.neo.mvvm.data.local.prefs.PreferencesHelper;
-import io.neo.mvvm.data.model.api.BlogResponse;
-import io.neo.mvvm.data.model.api.OpenSourceResponse;
-import io.neo.mvvm.data.model.api.account.LoginRequest;
-import io.neo.mvvm.data.model.api.account.LoginResponse;
-import io.neo.mvvm.data.model.api.account.LogoutResponse;
-import io.neo.mvvm.data.model.api.account.SignUpRequest;
-import io.neo.mvvm.data.model.api.account.SignUpResponse;
-import io.neo.mvvm.data.model.api.service.AppointmentCreateRequest;
-import io.neo.mvvm.data.model.api.service.AppointmentCreateResponse;
-import io.neo.mvvm.data.model.api.service.AppointmentDeleteRequest;
-import io.neo.mvvm.data.model.api.service.AppointmentDeleteResponse;
-import io.neo.mvvm.data.model.api.service.AppointmentGetRequest;
-import io.neo.mvvm.data.model.api.service.OrderCompletedRequest;
-import io.neo.mvvm.data.model.api.service.OrderCompletedResponse;
-import io.neo.mvvm.data.model.api.service.OrderEditRequest;
-import io.neo.mvvm.data.model.api.service.OrderGetRequest;
-import io.neo.mvvm.data.model.api.service.ReceiptGetRequest;
-import io.neo.mvvm.data.model.db.AppyService;
-import io.neo.mvvm.data.model.db.AppyServiceCategory;
-import io.neo.mvvm.data.model.db.ServiceAddress;
-import io.neo.mvvm.data.model.db.ServiceOrderUserInput;
-import io.neo.mvvm.data.model.db.User;
-import io.neo.mvvm.data.remote.ApiHeader;
-import io.neo.mvvm.data.remote.ApiHelper;
-import io.neo.mvvm.utils.helper.CommonUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -44,16 +14,33 @@ import java.util.concurrent.Callable;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import io.neo.mvvm.AppConstants;
+import io.neo.mvvm.data.local.db.DbHelper;
+import io.neo.mvvm.data.local.prefs.PreferencesHelper;
+import io.neo.mvvm.data.model.api.account.LoginRequest;
+import io.neo.mvvm.data.model.api.account.LoginResponse;
+import io.neo.mvvm.data.model.api.account.LogoutResponse;
+import io.neo.mvvm.data.model.api.account.SignUpRequest;
+import io.neo.mvvm.data.model.api.account.SignUpResponse;
+import io.neo.mvvm.data.model.db.Article;
+import io.neo.mvvm.data.model.db.ArticleCategory;
+import io.neo.mvvm.data.model.db.User;
+import io.neo.mvvm.data.remote.ApiHeader;
+import io.neo.mvvm.data.remote.ApiHelper;
+import io.neo.mvvm.utils.helper.CommonUtils;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
 @Singleton
 public class AppDataManager implements DataManager {
 
-    private final Context mContext;
+    protected final Context mContext;
     private final DbHelper mDbHelper;
     private final PreferencesHelper mPreferencesHelper;
     private final ApiHelper mApiHelper;
+
+    private ArrayList<Article> mArrayArticles;
+    private ArrayList<ArticleCategory> mArrayCategories;
 
     @Inject
     public AppDataManager(Context context,
@@ -180,16 +167,6 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<BlogResponse> getBlogApiCall() {
-        return mApiHelper.getBlogApiCall();
-    }
-
-    @Override
-    public Single<OpenSourceResponse> getOpenSourceApiCall() {
-        return mApiHelper.getOpenSourceApiCall();
-    }
-
-    @Override
     public String getAccessToken() {
         return mPreferencesHelper.getAccessToken();
     }
@@ -200,66 +177,6 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public ServiceAddress loadServiceAddress() {
-        return mPreferencesHelper.loadServiceAddress();
-    }
-
-    @Override
-    public void saveServiceAddress(ServiceAddress address) {
-        mPreferencesHelper.saveServiceAddress(address);
-    }
-
-    @Override
-    public Single<AppointmentCreateResponse> createAppointment(AppointmentCreateRequest dataRequest) {
-        return mApiHelper.createAppointment(dataRequest);
-    }
-
-    @Override
-    public Single<JSONObject> getAppointmentAll() {
-        return mApiHelper.getAppointmentAll();
-    }
-
-    @Override
-    public Single<JSONObject> getAppointment(AppointmentGetRequest request) {
-        return mApiHelper.getAppointment(request);
-    }
-
-    @Override
-    public Single<AppointmentDeleteResponse> deleteAppointment(AppointmentDeleteRequest request) {
-        return mApiHelper.deleteAppointment(request);
-    }
-
-    @Override
-    public Single<JSONObject> getOrder(OrderGetRequest request) {
-        return mApiHelper.getOrder(request);
-    }
-
-    @Override
-    public Single<JSONObject> getOrderAll() {
-        return mApiHelper.getOrderAll();
-    }
-
-    @Override
-    public Single<JSONObject> getReceipt(ReceiptGetRequest request) {
-        return mApiHelper.getReceipt(request);
-    }
-
-    @Override
-    public Single<JSONObject> getReceiptAll() {
-        return mApiHelper.getReceiptAll();
-    }
-
-    @Override
-    public Single<OrderCompletedResponse> markOrderCompleted(OrderCompletedRequest request) {
-        return mApiHelper.markOrderCompleted(request);
-    }
-
-    @Override
-    public Single<JSONObject> getUserProfile() {
-        return mApiHelper.getUserProfile();
-    }
-
-    @Override
     public void logout() {
         mPreferencesHelper.logout();
     }
@@ -267,11 +184,6 @@ public class AppDataManager implements DataManager {
     @Override
     public boolean isUserLoggedIn() {
         return mPreferencesHelper.isUserLoggedIn();
-    }
-
-    @Override
-    public Single<JSONObject> editOrder(OrderEditRequest request) {
-        return mApiHelper.editOrder(request);
     }
 
     @Override
@@ -295,14 +207,14 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<ArrayList<AppyServiceCategory>> seedDatabaseCategories() {
-        return Observable.fromCallable(new Callable<ArrayList<AppyServiceCategory>>() {
+    public Observable<ArrayList<ArticleCategory>> seedDatabaseCategories() {
+        return Observable.fromCallable(new Callable<ArrayList<ArticleCategory>>() {
             @Override
-            public ArrayList<AppyServiceCategory> call() throws Exception {
-                Type type = new TypeToken<ArrayList<AppyServiceCategory>>() {}.getType();
+            public ArrayList<ArticleCategory> call() throws Exception {
+                Type type = new TypeToken<ArrayList<ArticleCategory>>() {}.getType();
                 GsonBuilder builder = new GsonBuilder().excludeFieldsWithoutExposeAnnotation();
                 final Gson gson = builder.create();
-                ArrayList<AppyServiceCategory> appyServiceCategories = gson.fromJson(
+                ArrayList<ArticleCategory> appyServiceCategories = gson.fromJson(
                         CommonUtils.loadJSONFromAsset(mContext,
                                 AppConstants.SEED_DATABASE_CATEGORIES),
                         type);
@@ -312,24 +224,44 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<ArrayList<AppyService>> seedDatabaseServices() {
-        return Observable.fromCallable(new Callable<ArrayList<AppyService>>() {
+    public Observable<ArrayList<Article>> seedDatabaseArticle() {
+        return Observable.fromCallable(new Callable<ArrayList<Article>>() {
             @Override
-            public ArrayList<AppyService> call() throws Exception {
-                Type type = new TypeToken<ArrayList<AppyService>>() {}.getType();
+            public ArrayList<Article> call() throws Exception {
+                Type type = new TypeToken<ArrayList<Article>>() {}.getType();
                 GsonBuilder builder = new GsonBuilder().excludeFieldsWithoutExposeAnnotation();
                 Gson gson = builder.create();
-                ArrayList<AppyService> arrayList  = gson.fromJson(
+                ArrayList<Article> arrayList  = gson.fromJson(
                         CommonUtils.loadJSONFromAsset(mContext,
-                                AppConstants.SEED_DATABASE_SERVICES),
+                                AppConstants.SEED_DATABASE_ARTICLES),
                         type);
                 return arrayList;
             }
         });
     }
 
-    @Override
-    public ServiceOrderUserInput getServiceOrderUserInput() {
-        return ServiceOrderUserInput.getInstance();
+    public ArrayList<Article> getArrayArticles() {
+        return mArrayArticles;
+    }
+
+    public void setArrayArticles(ArrayList<Article> mArrayArticles) {
+        this.mArrayArticles = mArrayArticles;
+    }
+
+    public ArrayList<ArticleCategory> getArrayCategories() {
+        return mArrayCategories;
+    }
+
+    public void setArrayCategories(ArrayList<ArticleCategory> mArrayCategories) {
+        this.mArrayCategories = mArrayCategories;
+    }
+
+    public Article getArticleByName(String name) {
+        for(Article article: this.mArrayArticles) {
+            if(article.name.equals(name)) {
+                return article;
+            }
+        }
+        return null;
     }
 }

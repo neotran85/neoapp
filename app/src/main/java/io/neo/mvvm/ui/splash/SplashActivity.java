@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import javax.inject.Inject;
+
 import io.neo.mvvm.BR;
 import io.neo.mvvm.R;
 import io.neo.mvvm.databinding.ActivitySplashBinding;
 import io.neo.mvvm.ui.base.BaseActivity;
 import io.neo.mvvm.ui.main.MainActivity;
-
-import javax.inject.Inject;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel> {
 
@@ -26,10 +26,6 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mSplashViewModel.setNavigator(this);
-    }
-    @Override
-    public void onResume() {
-        super.onResume();
         mSplashViewModel.setUp();
     }
     @Override

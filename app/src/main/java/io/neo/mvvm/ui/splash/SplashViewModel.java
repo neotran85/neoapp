@@ -3,9 +3,11 @@ package io.neo.mvvm.ui.splash;
 import java.util.ArrayList;
 
 import io.neo.mvvm.data.DataManager;
-import io.neo.mvvm.data.model.db.AppyService;
-import io.neo.mvvm.data.model.db.AppyServiceCategory;
+import io.neo.mvvm.data.model.db.Article;
+import io.neo.mvvm.data.model.db.ArticleCategory;
 import io.neo.mvvm.ui.base.BaseViewModel;
+import io.neo.mvvm.utils.helper.AppLogger;
+import io.neo.mvvm.utils.manager.AlertManager;
 import io.neo.mvvm.utils.rx.SchedulerProvider;
 import io.reactivex.functions.Consumer;
 
@@ -22,15 +24,15 @@ public class SplashViewModel extends BaseViewModel<SplashActivity> {
 
     public void loadServices() {
         getCompositeDisposable().add(getDataManager()
-                .seedDatabaseServices()
+                .seedDatabaseArticle()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<ArrayList<AppyService>>() {
+                .subscribe(new Consumer<ArrayList<Article>>() {
                     @Override
-                    public void accept(ArrayList<AppyService> services) throws Exception {
-                        if (services != null) {
-                            getDataManager().getServiceOrderUserInput().setArrayAppyService(services);
+                    public void accept(ArrayList<Article> articles) throws Exception {
+                        if (articles != null) {
                             getNavigator().openMainActivity();
+                            getDataManager().setArrayArticles(articles);
                         }
                     }
                 }));
@@ -40,12 +42,12 @@ public class SplashViewModel extends BaseViewModel<SplashActivity> {
                 .seedDatabaseCategories()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<ArrayList<AppyServiceCategory>>() {
+                .subscribe(new Consumer<ArrayList<ArticleCategory>>() {
                     @Override
-                    public void accept(ArrayList<AppyServiceCategory> categories) throws Exception {
+                    public void accept(ArrayList<ArticleCategory> categories) throws Exception {
                         if (categories != null) {
-                            getDataManager().getServiceOrderUserInput().setArrayAppyServiceCategory(categories);
                             loadServices();
+                            getDataManager().setArrayCategories(categories);
                         }
                     }
                 }));

@@ -1,7 +1,6 @@
 package io.neo.mvvm.utils.helper;
 
 import io.neo.mvvm.BuildConfig;
-
 import timber.log.Timber;
 
 public final class AppLogger {

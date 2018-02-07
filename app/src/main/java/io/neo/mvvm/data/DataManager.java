@@ -1,14 +1,12 @@
 package io.neo.mvvm.data;
 
-import io.neo.mvvm.data.local.db.DbHelper;
-import io.neo.mvvm.data.local.prefs.PreferencesHelper;
-import io.neo.mvvm.data.model.db.AppyService;
-import io.neo.mvvm.data.model.db.AppyServiceCategory;
-import io.neo.mvvm.data.model.db.ServiceOrderUserInput;
-import io.neo.mvvm.data.remote.ApiHelper;
-
 import java.util.ArrayList;
 
+import io.neo.mvvm.data.local.db.DbHelper;
+import io.neo.mvvm.data.local.prefs.PreferencesHelper;
+import io.neo.mvvm.data.model.db.Article;
+import io.neo.mvvm.data.model.db.ArticleCategory;
+import io.neo.mvvm.data.remote.ApiHelper;
 import io.reactivex.Observable;
 
 
@@ -17,10 +15,6 @@ public interface DataManager extends DbHelper, PreferencesHelper, ApiHelper {
     void updateApiHeader(String token);
 
     void setUserAsLoggedOut();
-
-    Observable< ArrayList<AppyServiceCategory>> seedDatabaseCategories();
-
-    Observable<ArrayList<AppyService>> seedDatabaseServices();
 
     void updateUserInfo(
             String accessToken,
@@ -46,5 +40,17 @@ public interface DataManager extends DbHelper, PreferencesHelper, ApiHelper {
         }
     }
 
-    ServiceOrderUserInput getServiceOrderUserInput();
+    Observable<ArrayList<ArticleCategory>> seedDatabaseCategories();
+
+    Observable<ArrayList<Article>> seedDatabaseArticle();
+
+    ArrayList<Article> getArrayArticles();
+
+    void setArrayArticles(ArrayList<Article> mArrayArticles);
+
+    ArrayList<ArticleCategory> getArrayCategories();
+
+    void setArrayCategories(ArrayList<ArticleCategory> mArrayCategories);
+
+    Article getArticleByName(String name);
 }

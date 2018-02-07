@@ -18,20 +18,8 @@ public class User {
     @ColumnInfo(name = "last_name")
     public String lastName;
 
-    @ColumnInfo(name = "phone_number")
-    public String phoneNumber;
-
-    @ColumnInfo(name = "birthday")
-    public String birthday;
-
     @ColumnInfo(name = "email")
     public String email;
-
-    @ColumnInfo(name = "address")
-    public String address;
-
-    @ColumnInfo(name = "shipping_address")
-    public String shippingAddress;
 
     @ColumnInfo(name = "avatar_path")
     public String avatarPath;

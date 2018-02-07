@@ -2,7 +2,6 @@ package io.neo.mvvm.data.remote;
 
 import io.neo.mvvm.BuildConfig;
 
-
 public class ApiUrlConfig {
 
     public static final String USER_LOGIN = BuildConfig.BASE_URL

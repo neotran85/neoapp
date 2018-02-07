@@ -1,15 +1,15 @@
 package io.neo.mvvm.data.model.db;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AppyService {
+public class ArticleCategory {
     @Expose
-    @SerializedName("id")
-    @ColumnInfo(name = "id")
-    public String id;
+    @PrimaryKey
+    public Long id;
 
     @Expose
     @SerializedName("name")
@@ -17,22 +17,12 @@ public class AppyService {
     public String name;
 
     @Expose
-    @SerializedName("category")
-    @ColumnInfo(name = "category")
-    public String category;
-
-    @Expose
-    @SerializedName("price")
-    @ColumnInfo(name = "price")
-    public String price;
+    @SerializedName("image")
+    @ColumnInfo(name = "image")
+    public String image;
 
     @Expose
     @SerializedName("description")
     @ColumnInfo(name = "description")
     public String description;
-
-    @Expose
-    @SerializedName("detail")
-    @ColumnInfo(name = "detail")
-    public String detail;
 }

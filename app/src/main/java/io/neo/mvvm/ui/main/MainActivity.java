@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.crashlytics.android.Crashlytics;
@@ -17,27 +19,18 @@ import io.fabric.sdk.android.Fabric;
 import io.neo.mvvm.AppConstants;
 import io.neo.mvvm.BR;
 import io.neo.mvvm.R;
+import io.neo.mvvm.data.model.db.ArticleCategory;
 import io.neo.mvvm.databinding.ActivityMainBinding;
+import io.neo.mvvm.ui.article.ArticleActivity;
 import io.neo.mvvm.ui.base.BaseActivity;
+import io.neo.mvvm.ui.splash.SplashActivity;
 
-public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> implements MainNavigator {
-
-    public final static int TAB_HOME = 0;
-    public final static int TAB_NOTIFICATION = 1;
-    public final static int TAB_REQUEST = 2;
-    public final static int TAB_WISH_LIST = 3;
-    public final static int TAB_MY_PROFILE = 4;
-    public final static String TAB = "tab";
-
-    public final static int REQUEST_LOGIN_FOR_REQUEST_TRACKING= 1111;
-    public final static int REQUEST_LOGIN_FOR_MY_PROFILE = 1112;
-
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> implements MainNavigator, View.OnClickListener {
     @Inject
     ViewModelProvider.Factory mViewModelFactory;
 
     ActivityMainBinding mBinder;
     private MainViewModel mMainViewModel;
-    private View currentTab;
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -51,9 +44,26 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         AppConstants.initiate(this);
         mBinder = getViewDataBinding();
         mBinder.setViewModel(mMainViewModel);
+        mBinder.categoryRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mBinder.categoryRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mMainViewModel.setNavigator(this);
+        mMainViewModel.setUp(this);
     }
 
+    @Override
+    public void onClick(View view) {
+        if(view.getTag() instanceof ArticleCategory) {
+            ArticleCategory data = (ArticleCategory)view.getTag();
+            if(data.name.equals("Theories")) {
+                openArticleActivity();
+            }
+        }
+    }
+
+    public void openArticleActivity() {
+        Intent intent = ArticleActivity.getStartIntent(MainActivity.this);
+        startActivity(intent);
+    }
     @Override
     protected void onResume() {
         super.onResume();

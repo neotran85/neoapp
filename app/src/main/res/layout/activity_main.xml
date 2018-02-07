@@ -14,10 +14,26 @@
 
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:background="@color/gray_light">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/height_title_bar"
+            android:layout_alignTop="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:adapter="@{viewModel.obAdapter}"
+                tools:listitem="@layout/view_item_category" />
+        </LinearLayout>
+
+        <include android:id="@+id/titleBar" layout="@layout/view_title_bar"></include>
+    </RelativeLayout>
 
 </layout>

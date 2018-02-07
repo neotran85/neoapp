@@ -3,11 +3,9 @@ package io.neo.mvvm.data.local.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import io.neo.mvvm.data.model.db.ServiceAddress;
-import io.neo.mvvm.di.PreferenceInfo;
-import io.neo.mvvm.utils.helper.AppLogger;
-
 import javax.inject.Inject;
+
+import io.neo.mvvm.di.PreferenceInfo;
 
 
 public class AppPreferencesHelper implements PreferencesHelper {
@@ -89,21 +87,6 @@ public class AppPreferencesHelper implements PreferencesHelper {
     @Override
     public void setAccessToken(String token) {
         mPrefs.edit().putString(PREF_KEY_ACCESS_TOKEN, token).apply();
-    }
-
-    @Override
-    public ServiceAddress loadServiceAddress() {
-        ServiceAddress address = new ServiceAddress();
-        String json = mPrefs.getString(PREF_KEY_SERVICE_ADDRESS, "");
-        address.fromJSONString(json);
-        return address;
-    }
-
-    @Override
-    public void saveServiceAddress(ServiceAddress serviceAddress) {
-        AppLogger.d("saveServiceAddress: " + serviceAddress.toJSONString());
-        AppLogger.d("saveServiceAddress: " + serviceAddress.toString());
-        mPrefs.edit().putString(PREF_KEY_SERVICE_ADDRESS, serviceAddress.toJSONString()).apply();
     }
 
     @Override

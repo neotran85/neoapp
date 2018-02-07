@@ -10,14 +10,16 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name=".NeoProductApp"
+        android:largeHeap="true"
+        android:theme="@style/AppFullScreenTheme"
+        android:name="io.neo.mvvm.NeoProductApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
 
-        <activity android:name=".ui.splash.SplashActivity">
+        <activity android:name="io.neo.mvvm.ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,15 +28,22 @@
         </activity>
 
         <activity
-            android:name=".ui.main.MainActivity"
+            android:theme="@style/AppFullScreenTheme"
+            android:name="io.neo.mvvm.ui.main.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".ui.browser.BrowserActivity"
+            android:name="io.neo.mvvm.ui.browser.BrowserActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.article.ArticleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:screenOrientation="portrait" />
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="4b65f586237b86de0501374be978ce7302fc46fb" />

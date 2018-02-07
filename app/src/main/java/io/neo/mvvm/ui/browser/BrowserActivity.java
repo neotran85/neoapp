@@ -8,10 +8,10 @@ import android.webkit.WebViewClient;
 
 import javax.inject.Inject;
 
-import io.neo.mvvm.BR;
 import io.neo.mvvm.R;
-import io.neo.mvvm.databinding.ActivityBrowserBinding;
 import io.neo.mvvm.ui.base.BaseActivity;
+import io.neo.mvvm.BR;
+import io.neo.mvvm.databinding.ActivityBrowserBinding;
 
 public class BrowserActivity extends BaseActivity<ActivityBrowserBinding, BrowserViewModel> {
 

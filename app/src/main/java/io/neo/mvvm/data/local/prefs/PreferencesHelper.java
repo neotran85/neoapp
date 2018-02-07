@@ -1,7 +1,5 @@
 package io.neo.mvvm.data.local.prefs;
 
-import io.neo.mvvm.data.model.db.ServiceAddress;
-
 
 public interface PreferencesHelper {
 
@@ -28,10 +26,6 @@ public interface PreferencesHelper {
     String getAccessToken();
 
     void setAccessToken(String token);
-
-    ServiceAddress loadServiceAddress();
-
-    void saveServiceAddress(ServiceAddress serviceAddress);
 
     void logout();
 

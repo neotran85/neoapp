@@ -1,0 +1,158 @@
+[
+  {
+    "id": 0,
+    "name": "What is parasite?",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_what_is_parasite.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Symptoms",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_what_are_the_symptoms.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "How do you get parasites?",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_how_do_you_get_parasite.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Reasons not to get rid of parasites",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_reasons_not_get_rid_of_parasite.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Medicines",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_medecines.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Ivermectin",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_ivermectin.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Albendazole",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_albendazole.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Mebendazole",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_mebendazole.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Niclosamide",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_niclosamide.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Praziquantel",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_praziquantel.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Get Rid Of Parasites",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_niclosamide.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Protocol",
+    "category": "Theory",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.",
+    "detail": "images/content_protocol.jpg",
+    "image": "images/image_theories.jpg",
+    "references": [
+      "https://en.wikipedia.org/wiki/Parasitism",
+      "https://en.wikipedia.org/wiki/Human_parasite",
+      "https://en.wikipedia.org/wiki/Parasite_(disambiguation)"
+    ]
+  }
+]

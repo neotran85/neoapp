@@ -1,10 +1,44 @@
 [
   {
     "id": 0,
-    "name": "Home Cleaning"
+    "name": "Introduction",
+    "image": "images/image_introduction.jpg",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu."
   },
   {
     "id": 1,
-    "name": "Air-con Servicing"
+    "name": "Theories",
+    "image": "images/image_theories.jpg",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu."
+  },
+  {
+    "id": 2,
+    "name": "Practice",
+    "image": "images/image_practice.jpg",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu."
+  },
+  {
+    "id": 3,
+    "name": "Donate",
+    "image": "images/image_donate.jpg",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu."
+  },
+  {
+    "id": 4,
+    "name": "Preferences",
+    "image": "images/image_references.jpg",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu."
+  },
+  {
+    "id": 5,
+    "name": "Feedback",
+    "image": "images/image_feedback.jpg",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu."
+  },
+  {
+    "id": 6,
+    "name": "Set your dose schedule",
+    "image": "images/image_schedule.jpg",
+    "description":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu."
   }
 ]

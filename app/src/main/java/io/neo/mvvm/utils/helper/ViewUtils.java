@@ -1,14 +1,8 @@
 package io.neo.mvvm.utils.helper;
 
-import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
-
-import io.neo.mvvm.R;
 
 public final class ViewUtils {
 
